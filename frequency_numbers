@@ -1,0 +1,9 @@
+data <- as.numeric(readLines("/path/to/file.txt")) 
+data_counts <- table(data)
+plot_data <- data.frame(number = as.numeric(names(data_counts)), frequency = as.numeric(data_counts))
+library(ggplot2)
+ggplot(plot_data, aes(x = number, y = frequency)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  xlab("Number") +
+  ylab("Frequency") +
+  ggtitle("Frequency of Numbers")
